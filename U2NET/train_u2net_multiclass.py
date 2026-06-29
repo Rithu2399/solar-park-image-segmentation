@@ -52,8 +52,8 @@ class PanelsMultiDataset(Dataset):
 
 
 def get_loaders(root=DATA_ROOT):
-    tr = PanelsMultiDataset(os.path.join(root,"train"), os.path.join(root,"train/masks_multi"), IMG_SIZE, augment=True)
-    va = PanelsMultiDataset(os.path.join(root,"valid"), os.path.join(root,"valid/masks_multi"), IMG_SIZE, augment=False)
+    tr = PanelsMultiDataset(os.path.join(root,"train"), os.path.join(root,"train/masks_multi"), IMG_SIZE, augment=True) # changed masks_bin ---> masks_multi
+    va = PanelsMultiDataset(os.path.join(root,"valid"), os.path.join(root,"valid/masks_multi"), IMG_SIZE, augment=False) # changed masks_bin ---> masks_multi
     return DataLoader(tr, batch_size=BATCH, shuffle=True, num_workers=2, pin_memory=True), \
            DataLoader(va, batch_size=BATCH, shuffle=False, num_workers=2, pin_memory=True)
 
